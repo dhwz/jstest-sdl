@@ -5,9 +5,8 @@ LDFLAGS += -static-libgcc #-static-libstdc++
 fpic = -fPIC
 
 CFLAGS  = -std=c99
-#CFLAGS+=" -I$(get_build_dir SDL2-14)/include"
-CXXFLAGS += `$SYSROOT_PREFIX/usr/bin/sdl2-config --cflags`
-LIBS	= -lncurses -ltinfo `$SYSROOT_PREFIX/usr/bin/sdl2-config --libs`
+CXXFLAGS += `sdl2-config --cflags`
+LIBS	= -lncurses -ltinfo `sdl2-config --libs`
 
 
 all:
