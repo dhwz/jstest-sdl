@@ -9,7 +9,7 @@
  * Changelog:
  ************
  * 2016-07-18:  Added the --listsimple option.
- * 
+ *
  * 2016-07-16:  Just adapting the original code to my coding style. There is
  *              no new feature implemented.
  *
@@ -248,9 +248,17 @@ void test_joystick(int joy_idx) {
                 }
                 printw("\n");
 
-                printw("Buttons %2d:\n", num_buttons);
-                for(int i = 0; i < num_buttons; ++i) {
-                    printw("  %2d: %d  %s\n", i, buttons[i], buttons[i] ? "[#]":"[ ]");
+                if (num_buttons == 193) { // workaround for OpenSimHardware OSH PB Controller
+                    printw("Buttons %2d:\n", 12);
+		    for(int i = 0; i < 12; ++i) {
+                        printw("  %2d: %d  %s\n", i, buttons[i], buttons[i] ? "[#]":"[ ]");
+                    }
+                }
+                else {
+                    printw("Buttons %2d:\n", num_buttons);
+                    for(int i = 0; i < num_buttons; ++i) {
+                        printw("  %2d: %d  %s\n", i, buttons[i], buttons[i] ? "[#]":"[ ]");
+                    }
                 }
                 printw("\n");
 
